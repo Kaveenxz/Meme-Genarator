@@ -12,7 +12,7 @@ function App() {
 
   return (
    <div>
-    <Dashboard></Dashboard>
+    <Dashboard click={clickMe}></Dashboard>
    </div>
   )
 }
