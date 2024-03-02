@@ -3,17 +3,20 @@ import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
 import Dashboard from './component/Dashboard'
+import BaseContext from './context/BaseContext'
 
 function App() {
 
-  function clickMe(){
+  function clickMe() {
     console.log("Im Clicked")
   }
 
   return (
-   <div>
-    <Dashboard click={clickMe}></Dashboard>
-   </div>
+    <div>
+      <BaseContext.Provider value={clickMe}>
+        <Dashboard></Dashboard>
+      </BaseContext.Provider>
+    </div>
   )
 }
 
