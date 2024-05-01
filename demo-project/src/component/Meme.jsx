@@ -1,5 +1,4 @@
-import { useState } from 'react'
-import memeData from '../memeData'
+import { useEffect, useState } from 'react'
 
 function Meme() {
 
@@ -9,7 +8,13 @@ function Meme() {
       randomImage:"https://i.imgflip.com/30b1gx.jpg "
     })
 
-    const [memeImgage, setMemeImage] = useState(memeData)
+    useEffect(()=>{
+      fetch("https://api.imgflip.com/get_memes")
+      .then(res => res.json())
+      .then(data => setMemeImage(data))
+    },[])
+
+    const [memeImgage, setMemeImage] = useState("")
 
     const handleClick = ()=>{
         const memeArray = memeImgage.data.memes
@@ -61,7 +66,7 @@ function Meme() {
         <div className="meme">
         <img src={meme.randomImage} alt="meme-image" className='meme--image'/>
         <h2 className="meme--text top">{meme.topText}</h2>
-        <h2 className="meme--text bottom">{meme.bottomText}</h2>
+        <h2 className="meme--text bottom">{meme.bottomText }</h2>
         </div>
 
     </main>
