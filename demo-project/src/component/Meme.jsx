@@ -6,7 +6,8 @@ function Meme() {
       topText:"",
       bottomText:"",
       randomImage:"https://i.imgflip.com/30b1gx.jpg "
-    })
+    }) 
+    
 
     useEffect(()=>{
       fetch("https://api.imgflip.com/get_memes")
